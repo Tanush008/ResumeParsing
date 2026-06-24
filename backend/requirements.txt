@@ -1,0 +1,13 @@
+numpy
+pandas
+ipykernel
+matplotlib
+scikit-learn
+fastapi
+uvicorn
+sqlalchemy
+python-multipart
+python-dotenv
+pymupdf
+psycopg2-binary
+google-generativeai

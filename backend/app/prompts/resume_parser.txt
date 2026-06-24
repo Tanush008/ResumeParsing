@@ -1,0 +1,23 @@
+Extract information from the resume.
+
+Return ONLY valid JSON.
+
+Fields:
+
+name
+email
+phone
+skills
+education
+experience
+
+JSON format:
+
+{
+  "name": "",
+  "email": "",
+  "phone": "",
+  "skills": [],
+  "education": [],
+  "experience": []
+}

@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Environments (Virtual Environments)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Uploaded Resumes / Files
+app/uploads/
+
+# Databases
+*.db
+*.sqlite3
+*.sqlite3-journal
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.bak
+
+# Testing and Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
