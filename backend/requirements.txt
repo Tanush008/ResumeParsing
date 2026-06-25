@@ -11,3 +11,4 @@ python-dotenv
 pymupdf
 psycopg2-binary
 google-generativeai
+pydantic

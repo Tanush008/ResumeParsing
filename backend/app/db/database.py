@@ -1,19 +1,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL")
+from app.config import settings
 
-if DATABASE_URL and DATABASE_URL.startswith("sqlite"):
+if settings.database_url.startswith("sqlite"):
     engine = create_engine(
-        DATABASE_URL,
+        settings.database_url,
         connect_args={"check_same_thread": False}
     )
 else:
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(settings.database_url)
 
 SessionLocal = sessionmaker(
     autocommit=False,

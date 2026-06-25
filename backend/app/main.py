@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from app.config import settings
 from app.api.resume import router as resume_router
 from app.api.parser import router as parser_router
 from app.db.database import engine
@@ -12,9 +13,11 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # Set up CORS middleware
+# Allows both localhost and 127.0.0.1 variants of the configured frontend origin,
+# since browsers treat these as different origins even when pointing at the same dev server.
 origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
+    settings.frontend_origin,
+    settings.frontend_origin.replace("localhost", "127.0.0.1"),
 ]
 
 app.add_middleware(

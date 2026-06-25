@@ -1,17 +1,14 @@
 import json
-import os
 from pathlib import Path
 
 import google.generativeai as genai
 from pydantic import ValidationError
 
-from dotenv import load_dotenv
+from app.config import settings
 from app.schemas.parsed_resume import ParsedResume
 
-load_dotenv()
-
 genai.configure(
-    api_key=os.getenv("GEMINI_API_KEY")
+    api_key=settings.gemini_api_key
 )
 
 model = genai.GenerativeModel(

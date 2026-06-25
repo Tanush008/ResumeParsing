@@ -1,23 +1,51 @@
-Extract information from the resume.
+Extract structured information from the resume text below.
 
-Return ONLY valid JSON.
+Return ONLY valid JSON, with no markdown fences and no commentary.
 
-Fields:
+For every field you cannot find in the resume, use null (for single values)
+or an empty list (for skills/education/experience). Do not invent information.
 
-name
-email
-phone
-skills
-education
-experience
+For confidence_score on each item, use a number between 0 and 1 representing
+how certain you are that the extracted value is correct. Use a lower score
+when a date is ambiguous (e.g. only a year given) or a field is inferred
+rather than stated directly.
+
+Dates must be in "YYYY-MM-DD" format. If only a year or year+month is given,
+use the 1st of that month/year. If a job or degree is ongoing, set end_date
+to null and is_current to true.
 
 JSON format:
 
 {
-  "name": "",
-  "email": "",
-  "phone": "",
-  "skills": [],
-  "education": [],
-  "experience": []
+  "name": "" or null,
+  "email": "" or null,
+  "phone": "" or null,
+  "skills": [
+    {
+      "skill_name": "",
+      "category": "programming_language | tool | soft_skill | other",
+      "confidence_score": 0.0
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": "",
+      "field_of_study": "",
+      "start_date": "YYYY-MM-DD" or null,
+      "end_date": "YYYY-MM-DD" or null,
+      "confidence_score": 0.0
+    }
+  ],
+  "experience": [
+    {
+      "company": "",
+      "title": "",
+      "start_date": "YYYY-MM-DD" or null,
+      "end_date": "YYYY-MM-DD" or null,
+      "is_current": false,
+      "description": "",
+      "confidence_score": 0.0
+    }
+  ]
 }
